@@ -3,17 +3,18 @@
 <head>
   <title>Modal Widget</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="widget.js"></script>
+
 </head>
 <body>
   <div class="content">
-    <form= action="showModal">
-      <div class="addMsg">
+    <form>
+      <div class="addMsg" id="one">
         <label for="message">Add your message here!</label>
-        <input type="text" name="message" value="Hello World" />
-        <button type="submit" class ="btn">Submit</button>
+        <textarea name="message"  >Hello World </textarea>
+        <button type="button" onClick="dialogBoxBasic('title', 'whateves')" class ="btn">Submit</button>
       </div>
     </form>
   </div>
-  <script src="widget.js"></script>
 </body>
 </html>
