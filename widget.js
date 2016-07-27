@@ -1,19 +1,17 @@
 function dialogBoxBasic(msg, type, title){
   try {
     var messageTypes = {
-      basic: ['msgBoxTitle', 'Basic'],
+      basic: ['msgBoxTitle', 'Alert'],
       success: ['msgBoxSuccessTitle', 'Success'],
       warning: ['msgBoxWarningTitle', 'Warning'],
       error: ['msgBoxErrorTitle', 'Error']
     }
 
-    if(!type){
-      type = 'basic';
-    }
-    if(title===undefined){
+    if(!title){
       title = messageTypes[type][1];
     }
     
+    //create popup
     var msgDiv = "<div class='msgBoxDiv'><div class='msgBoxContents'><div class="+ 
       messageTypes[type][0] + ">" + 
       title + "</div><div class='msgBoxText'>" + 
@@ -21,11 +19,11 @@ function dialogBoxBasic(msg, type, title){
       "</div><button class='answerOK' id='okButton' tabindex='1' onclick='removeModal.bind(this)()" + 
       "'>O<u>K</u></button></div></div>";
 
-    var d1 = document.getElementById('one')
+    //insert popup
     document.body.insertAdjacentHTML("beforeend", msgDiv);
     document.body.focus();
     
-
+    //close on esc
     document.getElementById('okButton').onkeydown = function(button){
       if(button.keyCode===27){
         removeModal.bind(this)();
@@ -33,6 +31,10 @@ function dialogBoxBasic(msg, type, title){
       }
     }
     document.getElementById('okButton').focus();
+    //clear text fields 
+    document.getElementById('messageTitle').value = '';
+    document.getElementById('messageValue').value = '';
+
 
   } catch(e){
     console.log(e);
@@ -40,7 +42,6 @@ function dialogBoxBasic(msg, type, title){
 };
 
 function removeModal(){
-  console.log('in removeModal', this)
   document.body.removeChild(this.parentElement.parentElement);
 }
 
