@@ -10,9 +10,15 @@
   <div class="content">
     <form>
       <div class="addMsg" id="one">
-        <label for="message">Add your message here!</label>
-        <textarea name="message"  >Hello World </textarea>
-        <button type="button" onClick="dialogBoxBasic('hello darkness my old friend')" class ="btn">Submit</button>
+        <h1>Create a PopUp Message!</h1>
+        <h3>Title</h3>
+        <textarea name="title" id="messageTitle" placeholder="Title" ></textarea>
+        <h3>Message</h3>
+        <textarea name="message" id="messageValue" placeholder="Message"></textarea> <br>
+        <button type="button" onClick="dialogBoxBasic(document.getElementById('messageValue').value, 'basic', document.getElementById('messageTitle').value)" class ="btn">Alert</button>
+        <button type="button" onClick="dialogBoxBasic(document.getElementById('messageValue').value, 'success', document.getElementById('messageTitle').value)" class ="btn">Success</button>
+        <button type="button" onClick="dialogBoxBasic(document.getElementById('messageValue').value, 'warning', document.getElementById('messageTitle').value)" class ="btn">Warning</button>
+        <button type="button" onClick="dialogBoxBasic(document.getElementById('messageValue').value, 'error', document.getElementById('messageTitle').value)" class ="btn">Error</button>
       </div>
     </form>
   </div>
